@@ -1,17 +1,1 @@
-th\mfu\Service\RegisterService.class
-th\mfu\Repository\UserRepository.class
-th\mfu\Service\BookingService.class
-th\mfu\Controller\LoginController.class
-th\mfu\Domain\Booking.class
-th\mfu\Model\RegisModel.class
-th\mfu\Service\LoginService.class
-th\mfu\Model\BookingModel.class
-th\mfu\App.class
-th\mfu\Repository\BookingRepository.class
-th\mfu\Controller\RegisterController.class
-th\mfu\Service\ReviewService.class
-th\mfu\Controller\BookingController.class
-th\mfu\Domain\User.class
 BookingServlet.class
-th\mfu\Controller\ReviewController.class
-th\mfu\Model\LoginModel.class
