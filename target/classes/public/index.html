@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="mapstyle.css">
+   
+</head>
+
+<body>
+
+    <div class="grid">
+        <div class="sidebar con">
+            <div class="logo">
+                <a href="">
+                    <img src="../homepage/photo/logo.png" alt="">
+                </a>
+            </div>
+
+            <div class="loginbox">
+                <a href="login-regis.html">Login</a>
+            </div>
+            <div class="sign">
+                <a href="login-regis.html">Sign up</a>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>View map</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Bookinghistory.html">
+                        <i class="bi bi-calendar2-week-fill"></i>
+                        <span>Booking History</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="station.html">
+                        <i class="bi bi-ev-station"></i>
+                        <span>Station</span>
+                    </a>
+                </li>
+                <li>
+                    <h3>Contact us</h3>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Support</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-bug"></i>
+                        <span>Report issue</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-star"></i>
+                        <span>Ratting</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="navbar con">
+
+            <div class="map">
+                <span><a href="">Map</a></span>
+            </div>
+
+            <div class="station">
+                <span><a href="station.html">Booking</a></span>
+            </div>
+
+            <div class="searchcontainer">
+
+                <div id="search-wrapper">
+
+                    <input type="text" id="search" placeholder="Place,Postcode">
+                    <button id="search-button"><a href=""><i class="search-icon fas fa-search"></i></a></button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="content con">
+            
+            <div id="map"></div>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3CB8b2jthtowrAcNqqUX9vHqDytVbL3M&libraries=places&callback=initMap"
+                async defer></script>
+            <script>
+                function initMap() {
+                    
+                    var markerLatLng1 = { lat: 20.03425314862797, lng: 99.8751065274703 };
+                    var markerLatLng2 = { lat: 19.886996601883553, lng: 99.83461210028254 };
+                    var markerLatLng3 = { lat: 19.876944762864806, lng: 99.84804692380776 };
+                    var markerLatLng4 = { lat: 19.901911125503563, lng: 99.83813517515753 };
+                    var markerLatLng5 = { lat: 19.754614014044915, lng: 99.73159556574502 };
+                    var markerLatLng6 = { lat: 19.33770289946648, lng: 99.50996822919163 };
+                    var markerLatLng7 = { lat: 19.66265898232239, lng: 99.54955073210692 };
+                    var markerLatLng8 = { lat: 19.879650714603695, lng: 99.85015120021826 };
+                    var markerLatLng9 = { lat: 19.90331026275742, lng: 99.84087635348075 };
+                    var markerLatLng10 = { lat: 19.193387631161112, lng: 99.51402553912885 };
+                    var markerLatLng11 = { lat: 19.93154933686318, lng: 99.8443542654463 };
+                    var markerLatLng12 = { lat: 20.327376537592073, lng:  99.88402929554022 };
+                    var markerLatLng13 = { lat: 20.156439884490243, lng:  99.86119061962876 };
+                    var markerLatLng14 = { lat: 19.917369891845546, lng:  99.84634638419135 };
+                    var markerLatLng15 = { lat: 19.820989120121173, lng:  99.88796855721912 };
+                    var markerLatLng16 = { lat: 19.747466241507354, lng:  99.67979275134338 };
+                    var markerLatLng17 = { lat: 19.521874172762132, lng:  99.48124691784449 };
+
+                    
+                    // Check if Geolocation is supported by the browser
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            function (position) {
+                                var userLatLng = {
+                                    lat: position.coords.latitude,
+                                    lng: position.coords.longitude
+                                };
+
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    center: userLatLng,
+                                    zoom: 15
+                                });
+
+                                var markerImage = '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><style>svg{fill:#ff6a00}</style><path d="M96 0C60.7 0 32 28.7 32 64V448c-17.7 0-32 14.3-32 32s14.3 32 32 32H320c17.7 0 32-14.3 32-32s-14.3-32-32-32V304h16c22.1 0 40 17.9 40 40v32c0 39.8 32.2 72 72 72s72-32.2 72-72V252.3c32.5-10.2 56-40.5 56-76.3V144c0-8.8-7.2-16-16-16H544V80c0-8.8-7.2-16-16-16s-16 7.2-16 16v48H480V80c0-8.8-7.2-16-16-16s-16 7.2-16 16v48H432c-8.8 0-16 7.2-16 16v32c0 35.8 23.5 66.1 56 76.3V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V344c0-48.6-39.4-88-88-88H320V64c0-35.3-28.7-64-64-64H96zM216.9 82.7c6 4 8.5 11.5 6.3 18.3l-25 74.9H256c6.7 0 12.7 4.2 15 10.4s.5 13.3-4.6 17.7l-112 96c-5.5 4.7-13.4 5.1-19.3 1.1s-8.5-11.5-6.3-18.3l25-74.9H96c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7l112-96c5.5-4.7 13.4-5.1 19.3-1.1z"/></svg>';
+                                var markerImage2 = '<svg xmlns="http://www.w3.org/2000/svg"  height="1em" fill="#333" class="bi bi-p-circle-fill" viewBox="0 0 16 16">' +
+  '<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM5.5 4.002V12h1.283V9.164h1.668C10.033 9.164 11 8.08 11 6.586c0-1.482-.955-2.584-2.538-2.584H5.5Zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97H8.27Z"/>' +
+'</svg>';
+
+
+
+
+
+
+                                var marker1 = new google.maps.Marker({
+                                    position: markerLatLng1,
+                                    map: map,
+                                    title: 'ptt maefah',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }                           });
+
+                                marker1.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station ปตท.มหาวิทยาลัยแม่ฟ้าหลวง</a>' +
+                                '<p>AC Type 2 22kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p>CCS 2 160kW<img src="../homepage/photo/ccs.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span><span class="facility">Toilet</span> <span class="facility">Coffee Shop</span><span class="facility">Restaurant</span> <span class="facility">Shops</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker1);
+                                });
+
+
+
+
+
+                                var marker2 = new google.maps.Marker({
+                                    position: markerLatLng2,
+                                    map: map,
+                                    title: 'PTT Station Central chiangrai',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker2.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station Central chiangrai</a>' +
+                                '<p>AC Type 2 7kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Coffee Shop</span> <span class="facility">Wi-Fi</span> <span class="facility">Shops</span><span class="facility">Toilet</span> <span class="facility">parking</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker2);
+                                });
+
+    
+     
+
+
+
+
+                                var marker3 = new google.maps.Marker({
+                                    position: markerLatLng3,
+                                    map: map,
+                                    title: 'PT Gas Station Liangmueangchiangrai1',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });                          
+
+                                marker3.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station PT Gas Station Liangmueangchiangrai1</a>' +
+                                '<p>CCs 22 kw <img src="../homepage/photo/ccs.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Coffee Shop</span> <span class="facility">parking</span> <span class="facility">Shops</span> <span class="facility">Wi-Fi</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker3);
+
+
+                                    });
+
+
+                                var marker4 = new google.maps.Marker({
+                                    position: markerLatLng4,
+                                    map: map,
+                                    title: 'Nap Bed S EV Station',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker4.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station Nap Bed S EV Station</a>' +
+                                '<p>AC Type 2 22kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Toilet</span> <span class="facility">Restrooms</span> <span class="facility">WiFi</span> <span class="facility">parking</span> <span class="facility">Shops</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                    
+
+                                infowindow.open(map, marker4);
+
+
+                                });
+                                var marker5 = new google.maps.Marker({
+                                    position: markerLatLng5,
+                                    map: map,
+                                    title: 'EVolt Charging Station',
+
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker5.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station EVolt Charging Station</a>' +
+                                '<p>AC Type 2 43kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p>CCs 50kw <img src="../homepage/photo/ccs.png" alt=""></p>' +
+                                '<p>CHAdeMO 50kW<img src="../homepage/photo/ccs.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Restaurant</span><span class="facility">Toilet</span> <span class="facility">Shops</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                    
+
+                                infowindow.open(map, marker5);
+
+
+                                });
+
+                                var marker6 = new google.maps.Marker({
+                                    position: markerLatLng6,
+                                    map: map,
+                                    title: 'PTT Station ปตท.เวียงป่าเป้า ',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker6.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station PTT Station ปตท.เวียงป่าเป้า</a>' +
+                                '<p>AC Type 2 22kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">parking</span> <span class="facility">shops</span><span class="facility">Toilet</span> <span class="facility">coffee shops</span> <span class="facility">restaurants</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+             
+                                });
+                                infowindow.open(map, marker6);
+
+
+                                });
+
+                            
+                                var marker7 = new google.maps.Marker({
+                                    position: markerLatLng7,
+                                    map: map,
+                                    title: '  ปั๊มเอสโซ่ หจก.ภาณุออยล์ เซอร์วิส ',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker7.addListener('click', function() {
+                               var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">ปั๊มเอสโซ่ หจก.ภาณุออยล์ เซอร์วิส</a>' +
+                                '<p>AC Type 2 22kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p>CCs 120kw <img src="../homepage/photo/ccs.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Restaurant</span><span class="facility">Toilet</span> <span class="facility">Shops</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+     
+
+                                infowindow.open(map, marker7);
+
+
+                                });
+                            
+                                var marker8 = new google.maps.Marker({
+                                    position: markerLatLng8,
+                                    map: map,
+                                    title: 'PTT Station ปตท. ถนนบายพาสวงแหวนตะวันออกเชียงราย ',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker8.addListener('click', function() {
+                               var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station ปตท. ถนนบายพาสวงแหวนตะวันออกเชียงราย </a>' +
+                                '<p>AC Type 2 22kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p>CCs 160kw <img src="../homepage/photo/ccs.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Restaurant</span><span class="facility">Toilet</span> <span class="facility">Shops</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+     
+
+                                infowindow.open(map, marker8);
+
+
+                                });
+                            
+                                var marker9 = new google.maps.Marker({
+                                    position: markerLatLng9,
+                                    map: map,
+                                    title: ' PTT Station ปตท.ห้าแยกพ่อขุน ',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker9.addListener('click', function() {
+                                var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station  PTT Station ปตท.ห้าแยกพ่อขุน </a>' +
+                                '<p>AC Type 2 22kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p>CCs 120kw <img src="../homepage/photo/ccs.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Restaurant</span><span class="facility">Toilet</span> <span class="facility">Shops</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+     
+
+                                infowindow.open(map, marker9);
+
+
+                                });
+                            
+                                var marker10 = new google.maps.Marker({
+                                    position: markerLatLng10,
+                                    map: map,
+                                    title: ' PTT Station ปตท.แม่ขะจาน',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker10.addListener('click', function() {
+                               var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station   PTT Station ปตท.แม่ขะจาน </a>' +
+                                '<p>AC Type 2 7kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Restaurant</span><span class="facility">Toilet</span> <span class="facility">Shops</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+     
+
+                                infowindow.open(map, marker10);
+
+
+                                });
+                            
+                                var marker11 = new google.maps.Marker({
+                                    position: markerLatLng11,
+                                    map: map,
+                                    title: ' PTT Station ปตท.ริมกก (น้ำมัน+EV) หจก.ปัญญามอเตอร์ส',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker11.addListener('click', function() {
+                               var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">PTT Station   ปตท.ริมกก (น้ำมัน+EV) หจก.ปัญญามอเตอร์ส </a>' +
+                                '<p>AC Type 2 22kW <img src="../homepage/photo/ac.png" alt=""></p>' +
+                                '<p>CCs 160kw <img src="../homepage/photo/ccs.png" alt=""></p>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Restaurant</span><span class="facility">Toilet</span> <span class="facility">Shops</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+     
+
+                                infowindow.open(map, marker11);
+
+
+                                });
+                            
+                                var marker12 = new google.maps.Marker({
+                                    position: markerLatLng12,
+                                    map: map,
+                                    title: ' หมวดทางหลวงแม่สาย',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage2),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker12.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">หมวดทางหลวงแม่สาย</a>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Shops</span><span class="facility">Toilet</span> <span class="facility">parking</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker12);
+                                });
+
+                            
+                                
+                                var marker13 = new google.maps.Marker({
+                                    position: markerLatLng13,
+                                    map: map,
+                                    title: 'หมวดทางหลวงแม่จัน',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage2),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker13.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">หมวดทางหลวงแม่จัน</a>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Shops</span><span class="facility">Toilet</span> <span class="facility">parking</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker13);
+                                });
+
+                            
+                                var marker14 = new google.maps.Marker({
+                                    position: markerLatLng14,
+                                    map: map,
+                                    title: 'หมวดทางหลวงเชียงราย',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage2),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker14.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">หมวดทางหลวงเชียงราย</a>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Shops</span><span class="facility">Toilet</span> <span class="facility">parking</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker14);
+                                });
+                                
+                            
+                                var marker15 = new google.maps.Marker({
+                                    position: markerLatLng15,
+                                    map: map,
+                                    title: 'หมวดการทางเชียงรายที่ 2',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage2),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker15.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">หมวดทางหลวงเชียงรายที่ 2</a>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Shops</span><span class="facility">Toilet</span> <span class="facility">parking</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker15);
+                                });
+                            
+                                var marker16 = new google.maps.Marker({
+                                    position: markerLatLng16,
+                                    map: map,
+                                    title: 'หมวดทางหลวงแม่ลาว',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage2),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker16.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">หมวดทางหลวงแม่ลาว</a>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Shops</span><span class="facility">Toilet</span> <span class="facility">parking</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker16);
+                                });
+
+                                var marker17 = new google.maps.Marker({
+                                    position: markerLatLng17,
+                                    map: map,
+                                    title: 'หมวดทางหลวงแม่สรวย',
+                                    icon: {
+                                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(markerImage2),
+                                        scaledSize: new google.maps.Size(30, 30),
+                                    }
+                                });
+                                marker17.addListener('click', function() {
+                                    var infowindow = new google.maps.InfoWindow({
+                                content: '<div class="custom-infowindow">' +
+                                '<a href="#">หมวดทางหลวงแม่สรวย</a>' +
+                                '<p class="facilities">Facilities: <span class="facility">Restrooms</span> <span class="facility">Shops</span><span class="facility">Toilet</span> <span class="facility">parking</span></p>' +
+                                '<a id="navigate" href="https://maps.app.goo.gl/yrbPw5J2m2A4enkGA" target="_blank">Navigate</a>' +
+                                '<a id="book" href="#" target="_blank">Book</a>' +
+                                '</div>'
+                                });
+                                infowindow.open(map, marker17);
+                                });
+
+
+
+
+                                
+
+                            },
+                            function (error) {
+                                console.error('Error getting user location:', error);
+                            }
+                        );
+                    } else {
+                        console.error('Geolocation is not supported by your browser');
+                    }
+                }
+            </script>
+
+                            
+        </div>
+    </div>
+
+</body>
+
+</html>

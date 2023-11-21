@@ -1,0 +1,54 @@
+.name{
+  color: white;   
+  text-decoration: none;
+  background-color: #FF6F31;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  
+}
+
+.logout{
+    color: rgb(0, 0, 0);   
+    text-decoration: none;
+    background-color: #ffffff;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 8px;   
+}
+
+
+.logout:hover {
+    background-color: #ffffff; /* Change to a darker color on hover */
+    color: #fff; /* Change text color on hover */
+    border: solid black;
+}
+
+.name:hover{
+    background-color: #FF6F31; /* Change to a darker color on hover */
+    color: #fff; /* Change text color on hover */
+    border: solid black;
+
+}
+
+
+.name,
+.logout {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.name,
+.logout {
+    transition: font-size 0.3s ease; /* Add a smooth transition to font size */
+}
+
+.name:hover,
+.logout:hover {
+    font-size: 110%; /* Increase font size on hover */
+}

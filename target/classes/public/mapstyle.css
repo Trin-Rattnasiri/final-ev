@@ -1,0 +1,88 @@
+#map{
+    height: 100%;
+}
+
+
+/* styles.css */
+.custom-infowindow {
+    font-family: Arial, sans-serif;
+    max-width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+.custom-infowindow strong {
+    color: #ff6a00;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.custom-infowindow p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.custom-infowindow a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+
+
+
+.custom-infowindow img {
+    width: 28px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+
+
+
+.custom-infowindow p {
+    margin: 5px 0;
+}
+
+.facilities {
+    margin-top: 10px;
+}
+
+.facility {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.facility:hover {
+    background-color: #2980b9;
+}
+
+
+.custom-infowindow a#navigate {
+    margin-right: 5px; 
+}
+
+.custom-infowindow a#book {
+    
+    margin-top: 8px;
+    float: right;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #ff6a00;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+  
+}
