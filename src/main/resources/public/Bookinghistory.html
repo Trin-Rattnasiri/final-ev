@@ -1,0 +1,162 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="mapstyle.css">
+    <link rel="stylesheet" href="../homepage/user.css">
+    <link rel="stylesheet" href="booking.css">
+    <style>
+            .booking-info {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        width: 400px;
+        margin: 20px auto;
+    }
+
+    .booking-info h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .booking-info label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .booking-info input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 15px;
+    }
+
+    .booking-info input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .booking-info input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* เพิ่มสีพื้นหลังและขอบมุมสำหรับ "charge" */
+.charge {
+    background-color: #f0f0f0; /* สีพื้นหลัง */
+    border: 1px solid #ccc; /* ขอบ */
+    border-radius: 10px; /* มุมโค้ง */
+    padding: 10px; /* ระยะห่างขอบ */
+    margin-top: 20px; /* ระยะห่างด้านบน */
+}
+
+/* ปรับสีข้อความ */
+.charge p {
+    color: #333; /* สีข้อความ */
+    margin: 5px 0; /* ระยะห่างข้อความ */
+}
+
+</style>
+    </style>
+</head>
+
+<body>
+
+    <div class="grid">
+        <div class="sidebar con">
+            <div class="logo">
+                <a href="">
+                    <img src="../homepage/photo/logo.png" alt="">
+                </a>
+            </div>
+
+           
+                
+            <ul>
+                <li>
+                    <a href="">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>View map</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Bookinghistory.html">
+                        <i class="bi bi-calendar2-week-fill"></i>
+                        <span>Booking History</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../station/station.php">
+                        <i class="bi bi-ev-station"></i>
+                        <span>Station</span>
+                    </a>
+                </li>
+                <li>
+                    <h3>Contact us</h3>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Support</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-bug"></i>
+                        <span>Report issue</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-star"></i>
+                        <span>Ratting</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="navbar con">
+
+            <div class="map">
+                <span><a href="">Map</a></span>
+            </div>
+
+            <div class="station">
+                <span><a href="">Booking</a></span>
+            </div>
+
+            <div class="searchcontainer">
+
+                <div id="search-wrapper">
+
+                    <input type="text" id="search" placeholder="Place,Postcode">
+                    <button id="search-button"><a href=""><i class="search-icon fas fa-search"></i></a></button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="content con">
+            
+           
+                            
+        </div>
+    </div>
+
+</body>
+
+</html>
